@@ -1,5 +1,8 @@
 let wrapper = document.querySelector(".wrapper");
 let boxs = document.querySelectorAll(".box");
+let para = document.querySelector(".para");
+let clickpara = document.querySelector(".click");
+let startbtn = document.querySelector(".start");
 
 let colors = ["#eb4034", "#34eb62", "#344feb", "#ae34eb", "#34ebd0", "#adb8b6"];
 let fill = [...colors, ...colors];
@@ -8,18 +11,29 @@ fill.sort(() => Math.random() - 0.5);
 
 let firstbox = null;
 let secondbox = null;
+let clickcount = 0;
+let interval;
 
-boxs.forEach((box, index) => {
-  box.addEventListener("click", () => {
-    if (box === firstbox) return; 
+startbtn.addEventListener("click", () => {
+  timer();
+  boxClick();
+});
 
-    boxs[index].style.backgroundColor = fill[index];
+function boxClick() {
+  boxs.forEach((box, index) => {
+    box.addEventListener("click", () => {
+      clickcount++;
+      clickpara.innerText = `Click count: ${clickcount}`;
+      
+      if (box === firstbox) return;
+      box.style.backgroundColor = fill[index];
 
-    if (firstbox === null) {
-      firstbox = box;
-      return;
-    } else {
+      if (firstbox === null) {
+        firstbox = box;
+        return;
+      }
       secondbox = box;
+
       if (firstbox.style.backgroundColor === secondbox.style.backgroundColor) {
         reset();
       } else {
@@ -29,11 +43,24 @@ boxs.forEach((box, index) => {
           reset();
         }, 600);
       }
-    }
+    });
   });
-});
+}
 
 function reset() {
   firstbox = null;
   secondbox = null;
+}
+
+let time = 20;
+function timer() {
+  interval = setInterval(() => {
+    para.innerText = `Time: ${time}`;
+    time--;
+    if (time === 0) {
+      para.innerText = `Time:${time}`;
+      wrapper.style.display = "none";
+      clearInterval(interval);
+    }
+  }, 1000);
 }

@@ -3,6 +3,8 @@ let boxs = document.querySelectorAll(".box");
 let para = document.querySelector(".para");
 let clickpara = document.querySelector(".click");
 let startbtn = document.querySelector(".start");
+let instructions = document.querySelector(".instructions")
+
 
 let colors = ["#eb4034", "#34eb62", "#344feb", "#ae34eb", "#34ebd0", "#adb8b6"];
 let fill = [...colors, ...colors];
@@ -14,20 +16,28 @@ let secondbox = null;
 let clickcount = 0;
 let interval;
 boxClick();
+
 startbtn.addEventListener("click", () => {
   timer();
-
+// startbtn.disabled ="true";
+  instructions.style.display = "none";
+  
   time = 20;
   clickcount = 0;
   firstbox = null;
   secondbox = null;
+fill.sort(() => Math.random() - 0.5);
    clickpara.innerText = "Click count:0"
+   para.innerText = "Time:20"
+
   boxs.forEach((e) => {
     e.style.backgroundColor = "";
     e.style.display = "block";
+    e.style.pointerEvents = "auto"
   });
 
   wrapper.style.display = "block";
+
 });
 
 function boxClick() {
@@ -46,6 +56,8 @@ function boxClick() {
       secondbox = box;
 
       if (firstbox.style.backgroundColor === secondbox.style.backgroundColor) {
+        firstbox.style.pointerEvents = "none";
+        secondbox.style.pointerEvents = "none";
         reset();
       } else {
         setTimeout(() => {
@@ -61,17 +73,19 @@ function boxClick() {
 function reset() {
   firstbox = null;
   secondbox = null;
-
+  
 }
 
 let time = 20;
 function timer() {
+   clearInterval(interval);
   interval = setInterval(() => {
     para.innerText = `Time: ${time}`;
     time--;
     if (time === 0) {
       para.innerText = `Time:${time}`;
       wrapper.style.display = "none";
+     startbtn.disabled = false;
       clearInterval(interval);
     }
   }, 1000);

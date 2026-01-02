@@ -1,84 +1,83 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
-/* Page background */
-body{
-    min-height: 100vh;
-    background: linear-gradient(135deg, #1d2671, #c33764);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1d2671, #c33764);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Top info bar */
-.info{
-    width: 420px;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
+.info {
+  width: 420px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 /* Game wrapper */
-.wrapper{
-    background-color: white;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+.wrapper {
+  background-color: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
 }
 
-/* 👇 tumhari original CSS (unchanged) */
-.boxes{
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+.boxes {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
-.box{
-    height: 100px;
-    width: 100px;
-    border: 1px solid black;
-    cursor: pointer;
-    border-radius: 10px;
-    background-color: #f1f1f1;
-    transition: transform 0.2s, box-shadow 0.2s;
+.box {
+  display: none;
+  height: 100px;
+  width: 100px;
+  border: 1px solid black;
+  cursor: pointer;
+  border-radius: 10px;
+  background-color: #f1f1f1;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 /* Box hover effect */
-.box:hover{
-    transform: scale(1.05);
-    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+.box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* Start button */
-.start{
-    margin-top: 20px;
-    padding: 12px 30px;
-    font-size: 18px;
-    font-weight: bold;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    background: linear-gradient(135deg, #34eb62, #2fa84d);
-    color: black;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    transition: transform 0.2s, box-shadow 0.2s;
+.start {
+  margin-top: 20px;
+  padding: 12px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  background: linear-gradient(135deg, #34eb62, #2fa84d);
+  color: black;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.start:hover{
-    transform: translateY(-3px);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+.start:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
 }
 
-.start:active{
-    transform: scale(0.95);
+.start:active {
+  transform: scale(0.95);
 }

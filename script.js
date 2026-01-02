@@ -13,10 +13,21 @@ let firstbox = null;
 let secondbox = null;
 let clickcount = 0;
 let interval;
-
+boxClick();
 startbtn.addEventListener("click", () => {
   timer();
-  boxClick();
+
+  time = 20;
+  clickcount = 0;
+  firstbox = null;
+  secondbox = null;
+   clickpara.innerText = "Click count:0"
+  boxs.forEach((e) => {
+    e.style.backgroundColor = "";
+    e.style.display = "block";
+  });
+
+  wrapper.style.display = "block";
 });
 
 function boxClick() {
@@ -24,7 +35,7 @@ function boxClick() {
     box.addEventListener("click", () => {
       clickcount++;
       clickpara.innerText = `Click count: ${clickcount}`;
-      
+
       if (box === firstbox) return;
       box.style.backgroundColor = fill[index];
 
@@ -50,6 +61,7 @@ function boxClick() {
 function reset() {
   firstbox = null;
   secondbox = null;
+
 }
 
 let time = 20;
